@@ -46,6 +46,7 @@ return require('packer').startup(function(use)
   use('tpope/vim-fugitive')
   use('williamboman/mason.nvim')
   use('williamboman/mason-lspconfig.nvim')
+  use('m4xshen/autoclose.nvim')
 
 
  end)
