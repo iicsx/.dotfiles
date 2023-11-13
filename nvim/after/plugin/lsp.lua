@@ -34,15 +34,9 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 -- 	sign_icons = { }
 -- })
 
--- lsp.setup_nvim_cmp({
--- 	mapping = cmp_mappings
--- })
-
 cmp.setup({
 	mapping = cmp_mappings
 })
-
-
 
 lsp.on_attach(function(client, bufnr)
 	local opts = {buffer = bufnr, remap = false}
