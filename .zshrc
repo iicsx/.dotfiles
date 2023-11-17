@@ -10,6 +10,8 @@ alias vim='nvim'
 alias la='ls -la'
 alias clip='xclip -se c'
 alias paste='xclip -se c -o'
+alias ..='cd ..'
+alias ...='cd ../..'
 
 bindkey -e
 
