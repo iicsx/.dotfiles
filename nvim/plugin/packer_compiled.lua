@@ -145,9 +145,15 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
   },
   ["nvim-web-devicons"] = {
-    loaded = true,
-    path = "C:\\Users\\mnies\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons",
+    loaded = false,
+    needs_bufread = false,
+    path = "C:\\Users\\mnies\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
+  },
+  ["oceanic-next.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\mnies\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\oceanic-next.nvim",
+    url = "https://github.com/roflolilolmao/oceanic-next.nvim"
   },
   ["oxocarbon.nvim"] = {
     loaded = true,
@@ -184,6 +190,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\mnies\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
+  },
+  ["transparent.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\mnies\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\transparent.nvim",
+    url = "https://github.com/xiyaowong/transparent.nvim"
   },
   undotree = {
     loaded = true,

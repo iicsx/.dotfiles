@@ -31,6 +31,9 @@ return require('packer').startup(function(use)
 	  end,
   })
 
+  use('roflolilolmao/oceanic-next.nvim')
+  use('xiyaowong/transparent.nvim')
+
   use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v3.x',
