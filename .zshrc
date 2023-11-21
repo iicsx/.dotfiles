@@ -12,8 +12,7 @@ alias clip='xclip -se c'
 alias paste='xclip -se c -o'
 alias ..='cd ..'
 alias ...='cd ../..'
-
-bindkey -e
+alias sudoe='sudo -E -s'
 
 function zle-line-init {
    marking=0
