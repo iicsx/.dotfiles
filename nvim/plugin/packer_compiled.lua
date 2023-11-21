@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\mnies\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["mini.indentscope"] = {
+    loaded = true,
+    path = "C:\\Users\\mnies\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mini.indentscope",
+    url = "https://github.com/echasnovski/mini.indentscope"
+  },
   ["neo-tree.nvim"] = {
     loaded = true,
     path = "C:\\Users\\mnies\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neo-tree.nvim",

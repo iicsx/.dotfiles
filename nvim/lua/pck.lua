@@ -11,6 +11,7 @@ return require('packer').startup(function(use)
   use('williamboman/mason-lspconfig.nvim')
   use('m4xshen/autoclose.nvim')
   use('nyoom-engineering/oxocarbon.nvim')
+  use('echasnovski/mini.indentscope')
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
