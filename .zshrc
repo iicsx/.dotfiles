@@ -13,6 +13,7 @@ alias paste='xclip -se c -o'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias sudoe='sudo -E -s'
+alias hy="Hyprland"
 
 function zle-line-init {
    marking=0
@@ -96,5 +97,9 @@ bindkey '^[[1;2C' select-char-right # assuming xterm
 bindkey '^[[1;4D' select-word-left  # assuming xterm
 bindkey '^[[1;4C' select-word-right # assuming xterm
 
+export FONT="DroidSansM Nerd Font"
+export GTK_THEME=Adwaita:dark
+
+neofetch 
 
 eval "$(starship init zsh)"

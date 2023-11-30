@@ -5,4 +5,6 @@ swww img ~/.setup/wallpapers/neon.png &
 
 nm-applet --indicator &
 
+dunst &
+
 waybar &
