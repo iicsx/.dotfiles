@@ -12,6 +12,15 @@ return require('packer').startup(function(use)
   use('m4xshen/autoclose.nvim')
   use('nyoom-engineering/oxocarbon.nvim')
   use('echasnovski/mini.indentscope')
+  use {"nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    requires = { 
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", 
+      "MunifTanjim/nui.nvim"
+    }
+  }
+  use('nvim-neo-tree/neo-tree.nvim')
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
