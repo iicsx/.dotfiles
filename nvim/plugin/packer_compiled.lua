@@ -124,6 +124,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\mnies\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neo-tree.nvim",
     url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
   },
+  ["nordic.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\mnies\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nordic.nvim",
+    url = "https://github.com/AlexvZyl/nordic.nvim"
+  },
   ["nui.nvim"] = {
     loaded = true,
     path = "C:\\Users\\mnies\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nui.nvim",
