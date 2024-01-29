@@ -12,6 +12,7 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
+-- No longer needed due to UndoTree
 --vim.opt.undodir = os.getenv("HOME"), .. "/.vim/undodir"
 vim.opt.undofile = true
 

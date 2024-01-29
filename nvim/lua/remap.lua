@@ -16,6 +16,10 @@ vim.keymap.set("v", "<leader>d", "\"_d")
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 vim.keymap.set("n", "<leader>ff", "<Cmd>lua vim.lsp.buf.format()<CR>")
 vim.keymap.set("n", "<leader><tab>", ":quit<CR>")
+
 vim.keymap.set("n", "<leader>n", ":bnext<CR>")
 vim.keymap.set("n", "<leader>b", ":bprevious<CR>")
 vim.keymap.set("n", "<leader>t", ":enew<CR>")
+vim.keymap.set("n", "<leader>x", ":bd<CR>")
+
+vim.keymap.set("n", "<leader>e", ":Neotree<CR>")
