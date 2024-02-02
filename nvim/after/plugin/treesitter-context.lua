@@ -17,4 +17,3 @@ require('treesitter-context').setup {
         "Comment",
     },
 }
-
