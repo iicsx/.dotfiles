@@ -4,6 +4,7 @@ return require('packer').startup(function(use)
   use('wbthomason/packer.nvim')
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use('nvim-treesitter/playground')
+  use('nvim-treesitter/nvim-treesitter-context', {run = ':TSUpdate'})
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
@@ -51,11 +52,6 @@ return require('packer').startup(function(use)
 		  {'hrsh7th/cmp-nvim-lsp'},
 		  {'L3MON4D3/LuaSnip'},
 	  }
-  }
-
-  use {
-      'nvim-treesitter/nvim-treesitter-context',
-      run = ':TSUpdate'
   }
 
   use {
