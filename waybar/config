@@ -94,8 +94,8 @@
       "exec": "exec $HOME/.config/waybar/checkupdate.sh"
     },
     "pulseaudio": {
-      "format": "{volume}% {icon}",
-      "format-bluetooth": "{volume}% {icon}",
+      "format": "{icon} {volume}%",
+      "format-bluetooth": "{icon} {volume}% ",
       "format-muted": "",
       "format-icons": {
           "headphone": "",
@@ -115,8 +115,8 @@
         "critical": 15
       },
       "format": "    {capacity}%",
-      "format-charging": " {capacity}%",
-      "format-plugged": " {capacity}%",
+      "format-charging": "󱐋 {capacity}%",
+      "format-plugged": "󱐋 {capacity}%",
       "format-alt": "{time} {icon}",
       "format-full": "  {capacity}%",
       "format-icons": ["", "", ""]
