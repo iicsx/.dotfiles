@@ -33,7 +33,7 @@ return require('packer').startup(function(use)
 	  "folke/tokyonight.nvim",
 	  config = function()
 		  require("tokyonight").setup({
-			  style = "storm", 
+			  style = "moon", 
 		  })
 	  end,
   })
