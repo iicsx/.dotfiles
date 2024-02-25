@@ -94,13 +94,13 @@
       "exec": "exec $HOME/.config/waybar/checkupdate.sh"
     },
     "pulseaudio": {
-      "format": "{icon} {volume}%",
-      "format-bluetooth": "{icon} {volume}% ",
+      "format": "{icon}  {volume}%",
+      "format-bluetooth": "{icon}  {volume}% ",
       "format-muted": "",
       "format-icons": {
           "headphone": "",
           "hands-free": "",
-          "headset": "",
+          "headset": "",
           "phone": "",
           "portable": "",
           "car": "",
