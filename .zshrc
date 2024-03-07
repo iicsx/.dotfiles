@@ -165,7 +165,7 @@ setopt HIST_EXPIRE_DUPS_FIRST
 bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
 
-# neofetch 
+neofetch 
 
 # bun completions
 [ -s "/home/nex/.bun/_bun" ] && source "/home/nex/.bun/_bun"
@@ -176,3 +176,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /home/nex/source/repos/JS/smmo-gt/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/nex/source/repos/JS/smmo-gt/node_modules/tabtab/.completions/electron-forge.zsh
