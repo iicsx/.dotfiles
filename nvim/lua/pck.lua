@@ -14,6 +14,7 @@ return require('packer').startup(function(use)
   use('nyoom-engineering/oxocarbon.nvim')
   use('echasnovski/mini.indentscope')
   use('MunifTanjim/prettier.nvim')
+  use('github/copilot.vim')
 
   use('nvim-tree/nvim-web-devicons') 
   use('lewis6991/gitsigns.nvim') 
