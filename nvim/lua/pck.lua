@@ -16,6 +16,7 @@ return require('packer').startup(function(use)
   use('MunifTanjim/prettier.nvim')
   use('github/copilot.vim')
   use('elentok/format-on-save.nvim')
+  use('andweeb/presence.nvim')
 
   use('nvim-tree/nvim-web-devicons') 
   use('lewis6991/gitsigns.nvim') 
