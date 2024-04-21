@@ -53,6 +53,10 @@ export PATH=$PATH:~/.cargo/bin/
 alias vim="$EDITOR"
 alias vi="$EDITOR"
 
+# git alias
+alias gs='git status'
+alias gc='git commit'
+
 alias cls='clear'
 alias la='ls -la'
 alias sudoe='sudo -E -s'
