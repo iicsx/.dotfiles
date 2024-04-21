@@ -21,6 +21,7 @@ return require('packer').startup(function(use)
   use('nvim-tree/nvim-web-devicons') 
   use('lewis6991/gitsigns.nvim') 
   use('romgrk/barbar.nvim')
+  use('alvan/vim-closetag')
 
   use('AlexvZyl/nordic.nvim')
 
