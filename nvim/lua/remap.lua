@@ -22,7 +22,7 @@ vim.keymap.set("n", "<leader>b", ":bprevious<CR>")
 vim.keymap.set("n", "<leader>t", ":enew<CR>")
 vim.keymap.set("n", "<leader>x", ":bd<CR>")
 
-vim.keymap.set("n", "<leader>e", ":Neotree<CR>")
+vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>")
 
 vim.keymap.set('i', ')', [[<C-R>=strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"<CR>]], {expr = true, noremap = true})
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true })
