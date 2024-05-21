@@ -24,11 +24,10 @@ fi
 install_package() {
   echo "Installing $1..."
 
-  sudo apt install $CONFIRM $1 -y
+  sudo pacman -Sy $CONFIRM $1
 }
 
 for pkg in "${ARCH_PACKAGES[@]}"; do
-  echo "$CONFIRM"
   if [ "$CONFIRM" ]; then
     install_package $pkg
   else
