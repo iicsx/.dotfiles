@@ -35,6 +35,15 @@ return require('packer').startup(function(use)
   }
 
   use({
+    'MeanderingProgrammer/markdown.nvim',
+    after = { 'nvim-treesitter' },
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+    config = function()
+        require('render-markdown').setup({})
+    end,
+  })
+
+  use({
 	  "folke/tokyonight.nvim",
 	  config = function()
 		  require("tokyonight").setup({
