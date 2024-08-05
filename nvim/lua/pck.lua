@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
   use('elentok/format-on-save.nvim')
   use('andweeb/presence.nvim')
   use("stevearc/oil.nvim")
+  use("HiPhish/rainbow-delimiters.nvim")
 
   use('nvim-tree/nvim-web-devicons') 
   use('lewis6991/gitsigns.nvim') 
