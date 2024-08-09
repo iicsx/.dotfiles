@@ -14,7 +14,6 @@ return require('packer').startup(function(use)
   use('nyoom-engineering/oxocarbon.nvim')
   use('echasnovski/mini.indentscope')
   use('MunifTanjim/prettier.nvim')
-  use('github/copilot.vim')
   use('elentok/format-on-save.nvim')
   use('andweeb/presence.nvim')
   use("stevearc/oil.nvim")
@@ -29,6 +28,8 @@ return require('packer').startup(function(use)
 
   use('roflolilolmao/oceanic-next.nvim')
   use('xiyaowong/transparent.nvim')
+
+  use('Exafunction/codeium.vim')
 
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.4',
