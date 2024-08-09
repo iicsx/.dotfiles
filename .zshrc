@@ -56,6 +56,7 @@ alias vi="$EDITOR"
 # git alias
 alias gs='git status'
 alias gc='git commit'
+alias glg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'%n"
 
 alias cls='clear'
 alias la='ls -la'
@@ -184,3 +185,5 @@ eval "$(zoxide init zsh)"
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [[ -f /home/nex/source/repos/JS/smmo-gt/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/nex/source/repos/JS/smmo-gt/node_modules/tabtab/.completions/electron-forge.zsh
+
+source /usr/share/nvm/init-nvm.sh
