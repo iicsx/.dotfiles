@@ -30,7 +30,20 @@ function zsh() {
   fi
 
   ln -s "$PWD/.zshrc" "$target_file"
-  echo "Created zsh directory"
+  echo "Linked zsh config"
+}
+
+function gitconfig() {
+  target_file="$HOME/.gitconfig"
+
+  echo "$target_file"
+
+  if [ -e "$target_file" ]; then
+    rm "$target_file"
+  fi
+
+  ln -s "$PWD/.gitconfig" "$target_file"
+  echo "Linked .gitconfig"
 }
 
 function hypr() {
@@ -118,6 +131,7 @@ fi
 if [[ "$1" == "lin" || "$1" == "linux" ]]; then
   nvim
   zsh
+  gitconfig
   hypr
   kitty
   starship
