@@ -45,8 +45,6 @@ function save_set_cookie_lines()
   -- Get lines in json buffer
   local json_lines = vim.api.nvim_buf_get_lines(found_buffer, 0, -1, false)
   if #json_lines > 0 then 
-    local f = io.open("cookies.txt", "w")
-
     lines = {}
     for i, line in ipairs(json_lines) do
       if line:find("Set-Cookie", 1, true) == 1 then
@@ -56,8 +54,9 @@ function save_set_cookie_lines()
       end
     end
 
-    if #lines == 0 then return f:close() end
+    if #lines == 0 then return end
 
+    local f = io.open("cookies.txt", "w")
     f:write(table.concat(lines, "\n"))
     f:close()
   else 
