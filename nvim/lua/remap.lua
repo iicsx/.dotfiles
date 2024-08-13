@@ -33,4 +33,4 @@ vim.keymap.set("n", "[c", function()
   require("treesitter-context").go_to_context(vim.v.count1) -- jump to immediate context
 end, { silent = true })
 
-vim.keymap.set("n", "<leader>xc", ":call VrcQuery()<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>cx", ":call VrcQuery()<CR>", { noremap = true })
