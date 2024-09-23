@@ -67,10 +67,10 @@ return require('packer').startup(function(use)
   use('xiyaowong/transparent.nvim')
   use('lewis6991/gitsigns.nvim')
   use('romgrk/barbar.nvim')
-  use {
+  use({
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-  }
+  })
   use({
     "folke/noice.nvim",
     requires = {
@@ -82,6 +82,11 @@ return require('packer').startup(function(use)
   -- Formatting
   use('elentok/format-on-save.nvim')
   use('MunifTanjim/prettier.nvim')
+  use('m4xshen/autoclose.nvim')
+  use('alvan/vim-closetag')
+
+  -- Linting
+  use("danarth/sonarlint.nvim")
 
   -- Markdown
   use({
@@ -97,17 +102,6 @@ return require('packer').startup(function(use)
   use('Exafunction/codeium.vim')
 
   -- MISC --
-  use('m4xshen/autoclose.nvim')
   use('andweeb/presence.nvim')
-  use('alvan/vim-closetag')
-
-  -- HTTP Client
-  --   use({
-  --     "rest-nvim/rest.nvim",
-  --     requires = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" },
-  --     config = function()
-  --       require("rest-nvim").setup()
-  --     end,
-  --   })
   use("diepm/vim-rest-console")
 end)
