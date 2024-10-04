@@ -49,8 +49,8 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 
 echo ""
 
-echo "Installing yazi-wm"
-cargo install yazi-wm
+echo "Installing yazi-fm"
+cargo install yazi-fm
 
 echo ""
 
