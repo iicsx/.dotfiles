@@ -6,6 +6,7 @@ ARCH_PACKAGES=(
   kitty
   npm
   nodejs
+  rustup
 )
 
 if [ "$2" == "-y" ]; then
@@ -45,3 +46,14 @@ done
 echo "Installing Oh-My-Zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
+echo ""
+
+echo "Installing yazi-wm"
+cargo install yazi-wm
+
+echo ""
+
+echo "Installation complete!"
+echo "Press any key to exit..."
+read -n 1 _DISCARD

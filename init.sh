@@ -124,6 +124,19 @@ function firefox() {
   echo "Linked userChrome file"
 }
 
+function yazi() {
+  target_dir="$HOME/.config/yazi"
+
+  echo "$target_dir"
+
+  if [ -d "$target_dir" ]; then
+    rm -rf "$target_dir"
+  fi
+
+  ln -s "$PWD/yazi" "$target_dir"
+  echo "Created Yazi directory"
+}
+
 shopt -s nocasematch
 if [[ "$1" == "win" || "$1" == "windows" ]]; then
     echo "Error: Not Implemented"
