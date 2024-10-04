@@ -287,6 +287,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mnies/.local/share/nvim/site/pack/packer/start/vim-rest-console",
     url = "https://github.com/diepm/vim-rest-console"
+  },
+  ["yazi.nvim"] = {
+    loaded = true,
+    path = "/home/mnies/.local/share/nvim/site/pack/packer/start/yazi.nvim",
+    url = "https://github.com/mikavilpas/yazi.nvim"
   }
 }
 
