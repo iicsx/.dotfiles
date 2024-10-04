@@ -105,4 +105,6 @@ return require('packer').startup(function(use)
   -- MISC --
   use('andweeb/presence.nvim')
   use("diepm/vim-rest-console")
+
+  use('mikavilpas/yazi.nvim')
 end)
