@@ -6,7 +6,7 @@ vim.g.vrc_auto_format_response_patterns = {
 }
 
 local function get_opened_buffer_names()
-  local buffer_names = {} 
+  local buffer_names = {}
 
   for _, buf_handle in ipairs(vim.api.nvim_list_bufs()) do
     local buf_name = vim.api.nvim_buf_get_name(buf_handle)
@@ -16,7 +16,7 @@ local function get_opened_buffer_names()
   return buffer_names
 end
 
-local function get_buffer_number_from_name(name) 
+local function get_buffer_number_from_name(name)
   for _, buf_handle in ipairs(vim.api.nvim_list_bufs()) do
     if vim.api.nvim_buf_get_name(buf_handle) == name then
       return buf_handle
@@ -25,7 +25,7 @@ local function get_buffer_number_from_name(name)
 
   return nil
 end
- 
+
 function save_set_cookie_lines()
   local buffers = get_opened_buffer_names()
 
@@ -44,11 +44,11 @@ function save_set_cookie_lines()
 
   -- Get lines in json buffer
   local json_lines = vim.api.nvim_buf_get_lines(found_buffer, 0, -1, false)
-  if #json_lines > 0 then 
-    lines = {}
-    for i, line in ipairs(json_lines) do
+  if #json_lines > 0 then
+    local lines = {}
+    for _, line in ipairs(json_lines) do
       if line:find("Set-Cookie", 1, true) == 1 then
-        value = string.gsub(line, "Set%-", "", 1)
+        local value = string.gsub(line, "Set%-", "", 1)
 
         table.insert(lines, value)
       end
@@ -57,9 +57,11 @@ function save_set_cookie_lines()
     if #lines == 0 then return end
 
     local f = io.open("cookies.txt", "w")
+    if f == nil then return end
+
     f:write(table.concat(lines, "\n"))
     f:close()
-  else 
+  else
     -- wait for buffer to be loaded
     vim.defer_fn(save_set_cookie_lines, 200)
   end
@@ -68,4 +70,3 @@ end
 vim.cmd([[
   autocmd BufAdd *.json lua save_set_cookie_lines()
 ]])
-
