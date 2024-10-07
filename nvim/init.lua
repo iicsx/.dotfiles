@@ -4,6 +4,12 @@ require("remap")
 
 DEFAULT_COLOR = "oh-lucy"
 
+vim.diagnostic.config({
+  virtual_text = {
+    prefix = '●',
+  },
+})
+
 function sync_all()
   require("packer").sync()
 
@@ -11,14 +17,6 @@ function sync_all()
   vim.cmd("MasonUpdate")
 end
 
-vim.cmd([[let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro']])
-
 vim.cmd([[autocmd VimEnter * lua sync_all()]])
 
 vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
-
-vim.diagnostic.config({
-  virtual_text = {
-    prefix = '●',
-  },
-})
