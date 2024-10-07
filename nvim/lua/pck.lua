@@ -51,6 +51,11 @@ return require('packer').startup(function(use)
   use('nyoom-engineering/oxocarbon.nvim')
   use('roflolilolmao/oceanic-next.nvim')
   use('AlexvZyl/nordic.nvim')
+  use('rmehri01/onenord.nvim')
+  use('olivercederborg/poimandres.nvim')
+  use('Tsuzat/NeoSolarized.nvim')
+  use('Yazeed1s/oh-lucy.nvim')
+
   use({
     "folke/tokyonight.nvim",
     config = function()

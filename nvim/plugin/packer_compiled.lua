@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/mnies/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["NeoSolarized.nvim"] = {
+    loaded = true,
+    path = "/home/mnies/.local/share/nvim/site/pack/packer/start/NeoSolarized.nvim",
+    url = "https://github.com/Tsuzat/NeoSolarized.nvim"
+  },
   ["autoclose.nvim"] = {
     loaded = true,
     path = "/home/mnies/.local/share/nvim/site/pack/packer/start/autoclose.nvim",
@@ -202,10 +207,20 @@ _G.packer_plugins = {
     path = "/home/mnies/.local/share/nvim/site/pack/packer/start/oceanic-next.nvim",
     url = "https://github.com/roflolilolmao/oceanic-next.nvim"
   },
+  ["oh-lucy.nvim"] = {
+    loaded = true,
+    path = "/home/mnies/.local/share/nvim/site/pack/packer/start/oh-lucy.nvim",
+    url = "https://github.com/Yazeed1s/oh-lucy.nvim"
+  },
   ["oil.nvim"] = {
     loaded = true,
     path = "/home/mnies/.local/share/nvim/site/pack/packer/start/oil.nvim",
     url = "https://github.com/stevearc/oil.nvim"
+  },
+  ["onenord.nvim"] = {
+    loaded = true,
+    path = "/home/mnies/.local/share/nvim/site/pack/packer/start/onenord.nvim",
+    url = "https://github.com/rmehri01/onenord.nvim"
   },
   ["oxocarbon.nvim"] = {
     loaded = true,
@@ -226,6 +241,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mnies/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["poimandres.nvim"] = {
+    loaded = true,
+    path = "/home/mnies/.local/share/nvim/site/pack/packer/start/poimandres.nvim",
+    url = "https://github.com/olivercederborg/poimandres.nvim"
   },
   ["presence.nvim"] = {
     loaded = true,

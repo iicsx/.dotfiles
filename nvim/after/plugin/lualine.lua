@@ -70,7 +70,7 @@ end
 
 require('lualine').setup {
   options = {
-    theme = theme,
+    theme = DEFAULT_COLOR,
     component_separators = '',
     section_separators = { left = '', right = '' },
   },

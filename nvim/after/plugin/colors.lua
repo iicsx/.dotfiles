@@ -1,4 +1,10 @@
-local function set_telescope_colors()
+local function remove_background(elements)
+  for _, element in ipairs(elements) do
+    vim.api.nvim_set_hl(0, element, { bg = "none" })
+  end
+end
+
+local function remove_telescope_background()
   local elements = {
     "TelescopeBorder",
     "TelescopePromptBorder",
@@ -10,15 +16,41 @@ local function set_telescope_colors()
     "TelescopeResultsNormal",
     "TelescopePreviewNormal",
     "TelescopePromptNormal",
+
+    "GitSignsAdd",
+    "GitSignsChange",
+    "GitSignsDelete",
   }
 
-  for _, element in ipairs(elements) do
-    vim.api.nvim_set_hl(0, element, { fg = "white", bg = "none" })
-  end
+  remove_background(elements)
+end
+
+local function remove_lsp_background()
+  local elements = {
+    "DiagnosticSignError",
+    "DiagnosticSignWarn",
+    "DiagnosticSignInfo",
+    "DiagnosticSignHint",
+  }
+
+  remove_background(elements)
+end
+
+local function remove_git_background()
+  local elements = {
+    "DiagnosticSignError",
+    "DiagnosticSignWarn",
+    "DiagnosticSignInfo",
+    "DiagnosticSignHint",
+  }
+
+  remove_background(elements)
 end
 
 function setColor(color)
-  color = color or "oxocarbon"
+  color = color or DEFAULT_COLOR
+  DEFAULT_COLOR = color
+
   vim.cmd.colorscheme(color)
 
   vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
@@ -27,7 +59,9 @@ function setColor(color)
 
   vim.cmd('highlight SignColumn guibg=NONE')
 
-  set_telescope_colors()
+  remove_telescope_background()
+  remove_lsp_background()
+  remove_git_background()
 end
 
 setColor()
