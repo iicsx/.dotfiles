@@ -5,6 +5,9 @@ require("noice").setup({
       ["vim.lsp.util.stylize_markdown"] = true,
       ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
     },
+    hover = {
+      enabled = false
+    }
   },
   presets = {
     bottom_search = true,         -- use a classic bottom cmdline for search

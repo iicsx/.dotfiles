@@ -55,7 +55,16 @@ cmp.setup({
   }
 })
 
+
 lsp.on_attach(function(client, bufnr)
+  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+    vim.lsp.handlers.hover,
+    {
+      border = "rounded",
+      prefer_single_line = false,
+      background = "none",
+    }
+  )
   local opts = { buffer = bufnr, remap = false }
 
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
