@@ -23,13 +23,6 @@ require('mason-lspconfig').setup({
   },
 })
 
--- lsp.ensure_installed({
--- 	"tsserver",
---	"eslint",
---	"sumneko_lua",
---	"rust_analyzer"
--- })
-
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
@@ -39,10 +32,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-y>'] = cmp.mapping.complete()
 })
 
--- lsp.set_preferences({
--- 	sign_icons = { }
--- })
-
 cmp.setup({
   mapping = cmp_mappings,
   window = {
@@ -51,20 +40,15 @@ cmp.setup({
     }),
     documentation = cmp.config.window.bordered({
       border = 'rounded' -- Add rounded borders to the documentation window
+    }),
+    hover = cmp.config.window.bordered({
+      border = 'rounded' -- Add rounded borders to the hover window
     })
   }
 })
 
 
 lsp.on_attach(function(client, bufnr)
-  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-    vim.lsp.handlers.hover,
-    {
-      border = "rounded",
-      prefer_single_line = false,
-      background = "none",
-    }
-  )
   local opts = { buffer = bufnr, remap = false }
 
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
