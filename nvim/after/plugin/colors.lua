@@ -47,21 +47,27 @@ local function remove_git_background()
   remove_background(elements)
 end
 
+local function remove_misc_backgrounds(elements)
+  remove_background(elements)
+end
+
+-- exposing this globally for ad-hoc use
 function setColor(color)
   color = color or DEFAULT_COLOR
   DEFAULT_COLOR = color
-
   vim.cmd.colorscheme(color)
-
-  vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-  vim.api.nvim_set_hl(0, "FloatBorder", { fg = "white", bg = "none" })
-
-  vim.cmd('highlight SignColumn guibg=NONE')
 
   remove_telescope_background()
   remove_lsp_background()
   remove_git_background()
+
+  remove_misc_backgrounds({
+    "Normal",
+    "NormalFloat",
+    "SignColumn"
+  })
+
+  vim.api.nvim_set_hl(0, "FloatBorder", { fg = "white", bg = "none" })
 end
 
 setColor()
