@@ -68,9 +68,17 @@ local function modified()
   return ''
 end
 
+local function get_theme()
+  if DEFAULT_BAR_COLOR == "none" then
+    return nil
+  else
+    return DEFAULT_BAR_COLOR
+  end
+end
+
 require('lualine').setup {
   options = {
-    theme = DEFAULT_BAR_COLOR or DEFAULT_COLOR,
+    theme = get_theme(),
     component_separators = '',
     section_separators = { left = '', right = '' },
   },
