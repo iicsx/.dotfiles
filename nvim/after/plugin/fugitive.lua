@@ -47,14 +47,15 @@ end
 local function commit()
   open_floating_commit_window(function(commit_message)
     if commit_message == "" then
-      vim.notify("Commit message is empty")
+      vim.notify("Commit message is empty", vim.log.levels.WARN)
+      return
     end
 
     -- Use a temporary file to store the commit message
     local temp_file = vim.fn.tempname()
     local file = io.open(temp_file, "w")
     if not file then
-      vim.notify("Failed to create temporary file for commit")
+      vim.notify("Failed to create temporary file for commit", vim.log.levels.ERROR)
       return
     end
 
@@ -69,7 +70,7 @@ end
 
 vim.keymap.set("n", "<leader>gc", function()
   if is_stage_empty() then
-    vim.notify("No staged changes to commit")
+    vim.notify("No staged changes to commit", vim.log.levels.INFO)
     return
   end
 
