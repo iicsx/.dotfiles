@@ -77,6 +77,14 @@ vim.keymap.set("n", "<leader>gc", function()
   commit()
 end)
 
+local function needs_linebreak(line)
+  local is_start_of_body = string.sub(line, 1, 7) == "Changes"
+  local is_end_of_body = string.sub(line, 1, 7) == "Summary"
+  local is_start_of_footer = string.sub(line, 1, 10) == "no changes"
+
+  return is_start_of_body or is_end_of_body or is_start_of_footer
+end
+
 local function get_git_status()
   local output = vim.fn.system("git status")
 
@@ -87,6 +95,10 @@ local function get_git_status()
 
   local lines = {}
   for line in output:gmatch("[^\r\n]+") do
+    if needs_linebreak(line) then
+      table.insert(lines, "")
+    end
+
     table.insert(lines, line)
   end
 
