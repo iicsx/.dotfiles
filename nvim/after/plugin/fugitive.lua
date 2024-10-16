@@ -76,3 +76,50 @@ vim.keymap.set("n", "<leader>gc", function()
 
   commit()
 end)
+
+local function get_git_status()
+  local output = vim.fn.system("git status")
+
+  if vim.v.shell_error ~= 0 then
+    print("Error running git status: " .. output)
+    return nil
+  end
+
+  local lines = {}
+  for line in output:gmatch("[^\r\n]+") do
+    table.insert(lines, line)
+  end
+
+  return lines
+end
+
+local function git_status_float()
+  local buf = vim.api.nvim_create_buf(false, true)
+
+  vim.api.nvim_buf_set_option(buf, 'buftype', 'nofile')
+  vim.api.nvim_buf_set_option(buf, 'bufhidden', 'wipe')
+  vim.api.nvim_buf_set_option(buf, 'swapfile', false)
+  vim.api.nvim_buf_set_option(buf, 'syntax', 'git')
+
+  local width = math.min(vim.o.columns - 2, 80)
+  local height = math.min(vim.o.lines - 2, 20)
+
+  local _ = vim.api.nvim_open_win(buf, true, {
+    title = ' Git status ',
+    relative = 'editor',
+    style = 'minimal',
+    width = width,
+    height = height,
+    col = (vim.o.columns - width) / 2,
+    row = (vim.o.lines - height) / 2,
+    border = 'rounded',
+  })
+
+  local status_lines = get_git_status()
+  if status_lines then
+    vim.api.nvim_buf_set_lines(buf, 0, -1, false, status_lines)
+  end
+end
+
+vim.api.nvim_create_user_command('GitStatus', git_status_float, {})
+vim.keymap.set("n", "<leader>gs", git_status_float)
