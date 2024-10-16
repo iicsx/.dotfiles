@@ -137,5 +137,15 @@ local function git_status_float()
   end
 end
 
+-- Commands
 vim.api.nvim_create_user_command('GitStatus', git_status_float, {})
 vim.keymap.set("n", "<leader>gs", git_status_float)
+
+vim.keymap.set("n", "<leader>gc", function()
+  if is_stage_empty() then
+    vim.notify("No staged changes to commit", vim.log.levels.INFO)
+    return
+  end
+
+  commit()
+end)
