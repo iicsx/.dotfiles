@@ -208,6 +208,8 @@ local function git_status_float()
   if status_lines then
     vim.api.nvim_buf_set_lines(buf, 0, -1, false, status_lines)
   end
+
+  vim.api.nvim_buf_set_keymap(buf, 'n', '<Esc>', ':bd!<CR>', { noremap = true, silent = true })
 end
 
 -- Commands
