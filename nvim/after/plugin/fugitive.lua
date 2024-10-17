@@ -108,6 +108,11 @@ local function open_floating_commit_window(callback)
 
   vim.api.nvim_buf_set_lines(buf_status, 0, -1, false, changed_files)
 
+  -- Make the buffer read-only
+  vim.bo[buf_status].readonly = true
+  vim.bo[buf_status].modifiable = false
+
+
   -- Options for the status window
   local opts_status = {
     title = ' Changed files ',
@@ -211,6 +216,9 @@ local function git_status_float()
   if status_lines then
     vim.api.nvim_buf_set_lines(buf, 0, -1, false, status_lines)
   end
+
+  vim.bo[buf].readonly = true
+  vim.bo[buf].modifiable = false
 
   vim.api.nvim_buf_set_keymap(buf, 'n', '<Esc>', ':bd!<CR>', { noremap = true, silent = true })
 end
