@@ -68,6 +68,7 @@ function setColor(color)
   })
 
   vim.api.nvim_set_hl(0, "FloatBorder", { fg = "white", bg = "none" })
+  vim.api.nvim_set_hl(0, "FloatTitle", { fg = "white", bg = "none" })
 end
 
 setColor()
