@@ -90,6 +90,7 @@ local function open_floating_commit_window(callback)
   -- Options for the commit message window
   local opts_commit = {
     title = ' Commit message ',
+    title_pos = "center",
     relative = 'editor',
     width = width,
     height = height_commit,
@@ -110,6 +111,7 @@ local function open_floating_commit_window(callback)
   -- Options for the status window
   local opts_status = {
     title = ' Changed files ',
+    title_pos = "center",
     relative = 'editor',
     width = width,
     style = "minimal",
@@ -195,6 +197,7 @@ local function git_status_float()
 
   local _ = vim.api.nvim_open_win(buf, true, {
     title = ' Git status ',
+    title_pos = "center",
     relative = 'editor',
     style = 'minimal',
     width = width,
