@@ -21,7 +21,7 @@ vim.keymap.set("n", "<leader><tab>", ":quit<CR>")
 vim.keymap.set("n", "<leader>n", ":bnext<CR>")
 vim.keymap.set("n", "<leader>b", ":bprevious<CR>")
 vim.keymap.set("n", "<leader>t", ":enew<CR>")
-vim.keymap.set("n", "<leader>x", ":bd<CR>")
+vim.keymap.set("n", "<leader>x", ":bd!<CR>")
 
 vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>")
 
