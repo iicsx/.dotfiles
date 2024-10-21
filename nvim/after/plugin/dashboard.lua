@@ -62,6 +62,12 @@ db.setup({
         action = 'Oil ~/source/setup/.dotfiles',
         key = 'd',
       },
+      {
+        desc = '󰐥 quit',
+        group = 'Label',
+        action = 'quit',
+        key = 'q',
+      }
     },
   },
 })
