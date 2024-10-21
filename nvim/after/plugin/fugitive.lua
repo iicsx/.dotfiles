@@ -112,7 +112,6 @@ local function open_floating_commit_window(callback)
   vim.bo[buf_status].readonly = true
   vim.bo[buf_status].modifiable = false
 
-
   -- Options for the status window
   local opts_status = {
     title = ' Changed files ',
