@@ -84,6 +84,13 @@ return require('packer').startup(function(use)
       "rcarriga/nvim-notify",
     }
   })
+  use({
+    'nvimdev/dashboard-nvim',
+    requires = {
+      'MaximilianLloyd/ascii.nvim',
+    }
+  })
+  use("norcalli/nvim-colorizer.lua")
 
   -- Formatting
   use('elentok/format-on-save.nvim')
