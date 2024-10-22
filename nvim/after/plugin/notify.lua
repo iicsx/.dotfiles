@@ -1,7 +1,7 @@
 require("notify").setup({
   background_colour = "#000000",
-  render = "compact",
-  stages = "fade",
+  render = "default",
+  stages = "slide",
   timeout = 3000,
   top_down = false,
   on_open = function(win)
