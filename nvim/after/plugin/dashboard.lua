@@ -14,6 +14,25 @@ local function concat_tables(...)
   return insert
 end
 
+local function split(str, sep)
+  local fields = {}
+  local pattern = string.format("([^%s]+)", sep)
+  str:gsub(pattern, function(c) fields[#fields + 1] = c end)
+
+  return fields
+end
+
+local function is_file(str)
+  local elements = split(str, '.')
+
+  return #elements > 1
+end
+
+local function get_file(path)
+  local elements = split(path, '/')
+
+  return elements[#elements]
+end
 
 -- local function nl_string_to_table(s)
 --   local lines = {}
@@ -72,7 +91,10 @@ db.setup({
   },
 })
 
-vim.api.nvim_set_hl(0, 'DashboardHeader', { fg = '#add8e6' })
+local current_file = get_file(vim.fn.expand("%:p"))
+if not is_file(current_file) then
+  vim.cmd("Dashboard")
+end
 
-vim.cmd("Dashboard")
+vim.api.nvim_set_hl(0, 'DashboardHeader', { fg = '#add8e6' })
 vim.keymap.set("n", "<leader>d", ":Dashboard<CR>", { noremap = true })
