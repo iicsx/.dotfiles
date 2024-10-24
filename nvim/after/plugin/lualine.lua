@@ -71,7 +71,6 @@ require('lualine').setup {
         sections = { 'warn' },
         diagnostics_color = { warn = { bg = colors.orange, fg = colors.white } },
       },
-      { modified, color = { bg = colors.red } },
       {
         '%w',
         cond = function()
