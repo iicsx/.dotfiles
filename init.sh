@@ -110,12 +110,15 @@ function caelestia() {
 
 shopt -s nocasematch
 echo -n "--> Run preinstall script? [Y/n] : "; read -n 1 confirm_run
-if [ "$confirm_run" == "y" ]; then
-  chmod +x ./preinstall.sh
-  ./preinstall.sh
-else 
-  echo "--> Skipping preinstall..."
-fi
+case "$confirm_run" in
+  n|N)
+    echo "--> Skipping preinstall..."
+    ;;
+  *)
+    chmod +x ./preinstall.sh
+    ./preinstall.sh
+    ;;
+esac
 
 METHODS=(
   nvim
@@ -134,11 +137,14 @@ for mod in "${METHODS[@]}"; do
     echo -n "--> Install $mod? [Y/n] : "; read -n 1 confirm_install
     echo ""
 
-    if [ "$confirm_install" == "y" ]; then
-      install_package $mod
-    else 
-      echo "--> Skipping $mod..."
-    fi
+    case "$confirm_install" in
+      n|N)
+        echo "--> Skipping $mod..."
+        ;;
+      *)
+        install_package $mod
+        ;;
+    esac
   fi
 done
 shopt -u nocasematch

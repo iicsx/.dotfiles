@@ -38,11 +38,14 @@ else
     echo -n "--> Install $pkg? [Y/n] : "; read -n 1 confirm_install
     echo ""
 
-    if [ "$confirm_install" == "y"]; then
-      install_package $pkg
-    else 
-      echo "--> Skipping $pkg..."
-    fi
+    case "$confirm_install" in
+      n|N)
+        echo "--> Skipping $pkg..."
+        ;;
+      *)
+        install_package $pkg
+        ;;
+    esac
   done
 fi
 
@@ -54,11 +57,14 @@ for pkg in "${ARCH_PACKAGES[@]}"; do
     echo -n "Install $pkg? [Y/n] : "; read -n 1 confirm_install
     echo ""
 
-    if [ "$confirm_install" == "y" ]; then
-      install_package $pkg
-    else 
-      echo "--> Skipping $pkg..."
-    fi
+    case "$confirm_install" in
+      n|N)
+        echo "--> Skipping $pkg..."
+        ;;
+      *)
+        install_package $pkg
+        ;;
+    esac
   fi
 done
 
