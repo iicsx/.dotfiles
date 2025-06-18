@@ -1,35 +1,54 @@
 #!/bin/bash
 
+DEPS=(
+  grim
+  slurp
+  hyprctl
+  hyprpicker
+  wl-copy
+  wf-recorder
+  jq
+  notify-send
+  npm
+  python3
+  nodejs
+  rustup
+  lua
+)
+
 ARCH_PACKAGES=(
   zsh
   neovim
   kitty
-  npm
-  nodejs
-  rustup
+  fish
+  foot
 )
 
-if [ "$2" == "-y" ]; then
-    CONFIRM="-y"
-else
-    CONFIRM=""
-fi
-
-if [ -z "$1" ]; then
-    echo "Error: No distro specified."
-    echo "Press any key to exit..."
-    read -n 1 _DISCARD
-    exit  1
-fi
-
 install_package() {
-  echo "Installing $1..."
+  echo "--> Installing $1..."
 
-  sudo pacman -Sy $CONFIRM $1
+  sudo pacman -Sy $1 --noconfirm
 }
 
+# Install Dependencies
+if [ "$2" == "-y" ]; then
+  install_package ${DEPS[@]}
+else
+  for pkg in "${DEPS[@]}"; do
+    echo -n "--> Install $pkg? [Y/n] : "; read -n 1 confirm_install
+    echo ""
+
+    if [ "$confirm_install" == "y"]; then
+      install_package $pkg
+    else 
+      echo "--> Skipping $pkg..."
+    fi
+  done
+fi
+
+# Install Packages
 for pkg in "${ARCH_PACKAGES[@]}"; do
-  if [ "$CONFIRM" ]; then
+  if [ "$2" == "-y" ]; then
     install_package $pkg
   else
     echo -n "Install $pkg? [Y/n] : "; read -n 1 confirm_install
@@ -38,19 +57,24 @@ for pkg in "${ARCH_PACKAGES[@]}"; do
     if [ "$confirm_install" == "y" ]; then
       install_package $pkg
     else 
-      echo "Skipping $pkg..."
+      echo "--> Skipping $pkg..."
     fi
   fi
 done
 
-echo "Installing Oh-My-Zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+# echo "Installing Oh-My-Zsh"
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+# 
+# echo ""
+# 
+# echo "Installing yazi-fm"
+# cargo install yazi-fm
 
-echo ""
-
-echo "Installing yazi-fm"
-cargo install yazi-fm
+echo "--> Installing caelestia..."
+mkdir -p "$HOME/source/setup"
+git clone https://github.com/caelestia-dots/shell "$HOME/source/setup/caelestia"
+"./$HOME/source/setup/caelestia/install.fish"
 
 echo ""
 

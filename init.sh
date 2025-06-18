@@ -7,6 +7,16 @@ if [ -z "$1" ]; then
     exit  1
 fi
 
+echo "╭──────────────────────────────────╮"
+echo "│    (_)__(_)_____________________ │"
+echo "│ __/ /__/ /_  ___/_  ___/\ \ /_/  │"
+echo "│ _/ /__/ / / /__ _(__  )__> + <   │"
+echo "│ /_/  /_/  \___/ /____/  /_/ \_\  │"
+echo "╰──────────────────────────────────╯"
+echo ""
+echo "> Welcome to the dotfiles of iicsx!"
+echo ""
+
 function nvim() {
   target_dir="$HOME/.config/nvim"
 
@@ -17,7 +27,7 @@ function nvim() {
   fi
 
   ln -s "$PWD/nvim" "$target_dir"
-  echo "Created nvim directory"
+  echo "[󰄬] Created nvim directory"
 }
 
 function zsh() {
@@ -30,7 +40,7 @@ function zsh() {
   fi
 
   ln -s "$PWD/.zshrc" "$target_file"
-  echo "Linked zsh config"
+  echo "[󰄬] Linked zsh config"
 }
 
 function gitconfig() {
@@ -43,7 +53,7 @@ function gitconfig() {
   fi
 
   ln -s "$PWD/.gitconfig" "$target_file"
-  echo "Linked .gitconfig"
+  echo "[󰄬] Linked .gitconfig"
 }
 
 function hypr() {
@@ -56,7 +66,7 @@ function hypr() {
   fi
 
   ln -s "$PWD/hypr" "$target_dir"
-  echo "Created Hyprland directory"
+  echo "[󰄬] Created Hyprland directory"
 }
 
 function kitty() {
@@ -69,7 +79,7 @@ function kitty() {
   fi
 
   ln -s "$PWD/kitty" "$target_dir"
-  echo "Created kitty directory"
+  echo "[󰄬] Created kitty directory"
 }
 
 function starship() {
@@ -82,11 +92,11 @@ function starship() {
   fi
 
   ln -s "$PWD/starship.toml" "$target_file"
-  echo "Linked starship config"
+  echo "[󰄬] Linked starship config"
 }
 
-function waybar() {
-  target_dir="$HOME/.config/waybar"
+function caelestia() {
+  target_dir="$HOME/.config/caelestia"
 
   echo "$target_dir"
 
@@ -94,67 +104,46 @@ function waybar() {
     rm -rf "$target_dir"
   fi
 
-  ln -s "$PWD/waybar" "$target_dir"
-  echo "Created Waybar directory"
-}
-
-function wofi() {
-  target_dir="$HOME/.config/wofi"
-
-  echo "$target_dir"
-
-  if [ -d "$target_dir" ]; then
-    rm -rf "$target_dir"
-  fi
-
-  ln -s "$PWD/wofi" "$target_dir"
-  echo "Created Wofi directory"
-}
-
-function firefox() {
-  target_file="$HOME/.mozilla/firefox/sws4h8xy.default-release/chrome/userChrome.css"
-
-  echo "$target_file"
-
-  if [ -e "$target_file" ]; then
-    rm "$target_file"
-  fi
-
-  ln -s "$PWD/firefox/userCrome.css" "$target_file"
-  echo "Linked userChrome file"
-}
-
-function yazi() {
-  target_dir="$HOME/.config/yazi"
-
-  echo "$target_dir"
-
-  if [ -d "$target_dir" ]; then
-    rm -rf "$target_dir"
-  fi
-
-  ln -s "$PWD/yazi" "$target_dir"
-  echo "Created Yazi directory"
+  ln -s "$PWD/caelestia" "$target_dir"
+  echo "[󰄬] Created caelestia directory"
 }
 
 shopt -s nocasematch
-if [[ "$1" == "win" || "$1" == "windows" ]]; then
-    echo "Error: Not Implemented"
+echo -n "--> Run preinstall script? [Y/n] : "; read -n 1 confirm_run
+if [ "$confirm_run" == "y" ]; then
+  chmod +x ./preinstall.sh
+  ./preinstall.sh
+else 
+  echo "--> Skipping preinstall..."
 fi
-if [[ "$1" == "lin" || "$1" == "linux" ]]; then
+
+METHODS=(
   nvim
   zsh
   gitconfig
   hypr
+  caelestia
   kitty
   starship
-  waybar
-  wofi
-  firefox
+)
 
-  # other symlinks
-fi
+for mod in "${METHODS[@]}"; do
+  if [ "$2" == "-y" ]; then
+    $mod
+  else
+    echo -n "--> Install $mod? [Y/n] : "; read -n 1 confirm_install
+    echo ""
+
+    if [ "$confirm_install" == "y" ]; then
+      install_package $mod
+    else 
+      echo "--> Skipping $mod..."
+    fi
+  fi
+done
 shopt -u nocasematch
 
-echo "Press any key to exit..."
+
+
+echo "--> Press any key to exit..."
 read -n 1 _DISCARD
