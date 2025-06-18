@@ -1,0 +1,179 @@
+{
+  "nodes": {
+    "nixCats": {
+      "locked": {
+        "lastModified": 1743141890,
+        "narHash": "sha256-jo+Oy2IwYMjx735I5D0s/HqEj15IVYiiiAhkD0MIKt0=",
+        "owner": "BirdeeHub",
+        "repo": "nixCats-nvim",
+        "rev": "3a67cfb027d94b528868f57d9227e8bf4c28d752",
+        "type": "github"
+      },
+      "original": {
+        "owner": "BirdeeHub",
+        "repo": "nixCats-nvim",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1743076231,
+        "narHash": "sha256-yQugdVfi316qUfqzN8JMaA2vixl+45GxNm4oUfXlbgw=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "6c5963357f3c1c840201eda129a99d455074db04",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "plugins-format-on-save": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1735129140,
+        "narHash": "sha256-7uJpTg2VBuas89SI1viuCKZhqgSl+iCriC3ZVuDCrBc=",
+        "owner": "elentok",
+        "repo": "format-on-save.nvim",
+        "rev": "a224e5f6fa42cc02ce002938aff39ff43455f28f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "elentok",
+        "repo": "format-on-save.nvim",
+        "type": "github"
+      }
+    },
+    "plugins-gint-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1730753064,
+        "narHash": "sha256-FagvPxuHqmJu5lbkYi8lW/CkKXkK3W+UCTnzULvbd6A=",
+        "owner": "pneumaea",
+        "repo": "gint-nvim",
+        "rev": "300dce3f60a2faa25cf3fe9e4812b683df2a0f84",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pneumaea",
+        "repo": "gint-nvim",
+        "type": "github"
+      }
+    },
+    "plugins-gp-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1726734798,
+        "narHash": "sha256-QUZrFU/+TPBEU8yi9gmyRYjI/u7DP88AxcS0RMk7Jvk=",
+        "owner": "Robitx",
+        "repo": "gp.nvim",
+        "rev": "2372d5323c6feaa2e9c19f7ccb537c615d878e18",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Robitx",
+        "repo": "gp.nvim",
+        "type": "github"
+      }
+    },
+    "plugins-obsidian-bridge-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1740593125,
+        "narHash": "sha256-RVX6VeKvn5XodwX4UIEBI/Bo6ogMwhA/zrEZN8Bm3j4=",
+        "owner": "oflisback",
+        "repo": "obsidian-bridge.nvim",
+        "rev": "079f788c7df99b3063935249ff9ff6ddadd2b85a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oflisback",
+        "repo": "obsidian-bridge.nvim",
+        "type": "github"
+      }
+    },
+    "plugins-obsidian-local-rest-api": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1742173688,
+        "narHash": "sha256-OjchMZnVHO7jmOCYFQ09G2jHsVO6eEUOzWMNh9TVBZU=",
+        "owner": "coddingtonbear",
+        "repo": "obsidian-local-rest-api",
+        "rev": "68bdd56b6a198df405580c51155702b0d6d8e2ed",
+        "type": "github"
+      },
+      "original": {
+        "owner": "coddingtonbear",
+        "repo": "obsidian-local-rest-api",
+        "type": "github"
+      }
+    },
+    "plugins-oh-lucy-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1739293515,
+        "narHash": "sha256-+kSjqw7J/BNf5qhcwuqFFTLG1jmUtnPI2X4WXzhvysk=",
+        "owner": "Yazeed1s",
+        "repo": "oh-lucy.nvim",
+        "rev": "8f96ec851af11c327ed2449039e09f20292b5c2c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Yazeed1s",
+        "repo": "oh-lucy.nvim",
+        "type": "github"
+      }
+    },
+    "plugins-render-markdown-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1743135472,
+        "narHash": "sha256-mpoTD7JV/3mYF5jAFa2lq1k4w+cXOF41IjjK/tg4hqE=",
+        "owner": "MeanderingProgrammer",
+        "repo": "render-markdown.nvim",
+        "rev": "e6c8081691881fd63b4d72cb472094ac190ac56e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MeanderingProgrammer",
+        "repo": "render-markdown.nvim",
+        "type": "github"
+      }
+    },
+    "plugins-vim-rest-console": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1553296776,
+        "narHash": "sha256-Us7LLK/GJsFyIIROGn4y0k8c3yz+Y/X+WWwHcRqL+PQ=",
+        "owner": "diepm",
+        "repo": "vim-rest-console",
+        "rev": "7b407f47185468d1b57a8bd71cdd66c9a99359b2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "diepm",
+        "repo": "vim-rest-console",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixCats": "nixCats",
+        "nixpkgs": "nixpkgs",
+        "plugins-format-on-save": "plugins-format-on-save",
+        "plugins-gint-nvim": "plugins-gint-nvim",
+        "plugins-gp-nvim": "plugins-gp-nvim",
+        "plugins-obsidian-bridge-nvim": "plugins-obsidian-bridge-nvim",
+        "plugins-obsidian-local-rest-api": "plugins-obsidian-local-rest-api",
+        "plugins-oh-lucy-nvim": "plugins-oh-lucy-nvim",
+        "plugins-render-markdown-nvim": "plugins-render-markdown-nvim",
+        "plugins-vim-rest-console": "plugins-vim-rest-console"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
