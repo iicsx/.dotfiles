@@ -7,6 +7,12 @@ if [ -z "$1" ]; then
     exit  1
 fi
 
+install_package() {
+  echo "--> Installing $1..."
+
+  sudo pacman -Sy $1 --noconfirm
+}
+
 echo "╭──────────────────────────────────╮"
 echo "│    (_)__(_)_____________________ │"
 echo "│ __/ /__/ /_  ___/_  ___/\ \ /_/  │"

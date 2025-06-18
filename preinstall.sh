@@ -8,7 +8,7 @@ DEPS=(
   wl-copy
   wf-recorder
   jq
-  notify-send
+  libnotify
   npm
   python3
   nodejs
