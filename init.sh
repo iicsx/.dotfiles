@@ -7,12 +7,6 @@ if [ -z "$1" ]; then
     exit  1
 fi
 
-install_package() {
-  echo "--> Installing $1..."
-
-  sudo pacman -Sy $1 --noconfirm
-}
-
 echo "╭──────────────────────────────────╮"
 echo "│    (_)__(_)_____________________ │"
 echo "│ __/ /__/ /_  ___/_  ___/\ \ /_/  │"
@@ -148,7 +142,7 @@ for mod in "${METHODS[@]}"; do
         echo "--> Skipping $mod..."
         ;;
       *)
-        install_package $mod
+        $mod
         ;;
     esac
   fi
