@@ -14,6 +14,7 @@ DEPS=(
   nodejs
   rustup
   lua
+  fuzzel
 )
 
 ARCH_PACKAGES=(

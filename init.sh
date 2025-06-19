@@ -95,6 +95,19 @@ function starship() {
   echo "[󰄬] Linked starship config"
 }
 
+function fuzzel() {
+  target_dir="$HOME/.config/fuzzel"
+
+  echo "$target_dir"
+
+  if [ -d "$target_dir" ]; then
+    rm -rf "$target_dir"
+  fi
+
+  ln -s "$PWD/fuzzel" "$target_dir"
+  echo "[󰄬] Created fuzzel directory"
+}
+
 function caelestia() {
   target_dir="$HOME/.config/caelestia"
 
