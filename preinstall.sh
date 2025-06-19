@@ -15,6 +15,7 @@ DEPS=(
   rustup
   lua
   zoxide
+  git-delta
 )
 
 ARCH_PACKAGES=(
