@@ -26,7 +26,7 @@ function nvim() {
     rm -rf "$target_dir"
   fi
 
-  ln -s "$PWD/nvim" "$target_dir"
+  ln -s "$PWD/nvim/extra" "$target_dir"
   echo "[󰄬] Created nvim directory"
 }
 
@@ -82,6 +82,32 @@ function kitty() {
   echo "[󰄬] Created kitty directory"
 }
 
+function fish() {
+  target_dir="$HOME/.config/fish"
+
+  echo "$target_dir"
+
+  if [ -d "$target_dir" ]; then
+    rm -rf "$target_dir"
+  fi
+
+  ln -s "$PWD/fish" "$target_dir"
+  echo "[󰄬] Created fish directory"
+}
+
+function foot() {
+  target_dir="$HOME/.config/foot"
+
+  echo "$target_dir"
+
+  if [ -d "$target_dir" ]; then
+    rm -rf "$target_dir"
+  fi
+
+  ln -s "$PWD/foot" "$target_dir"
+  echo "[󰄬] Created foot directory"
+}
+
 function starship() {
   target_file="$HOME/.config/starship.toml"
 
@@ -112,6 +138,7 @@ shopt -s nocasematch
 echo -n "--> Run preinstall script? [Y/n] : "; read -n 1 confirm_run
 case "$confirm_run" in
   n|N)
+    echo ""
     echo "--> Skipping preinstall..."
     ;;
   *)
@@ -128,6 +155,8 @@ METHODS=(
   caelestia
   kitty
   starship
+  fish
+  foot
 )
 
 for mod in "${METHODS[@]}"; do

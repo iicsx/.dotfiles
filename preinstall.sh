@@ -3,9 +3,9 @@
 DEPS=(
   grim
   slurp
-  hyprctl
+  hyprland
   hyprpicker
-  wl-copy
+  wl-clipboard
   wf-recorder
   jq
   libnotify
@@ -14,6 +14,7 @@ DEPS=(
   nodejs
   rustup
   lua
+  zoxide
 )
 
 ARCH_PACKAGES=(
@@ -22,32 +23,39 @@ ARCH_PACKAGES=(
   kitty
   fish
   foot
+  starship
 )
 
 install_package() {
-  echo "--> Installing $1..."
+  local packages="$*"
+  echo "--> Installing $packages..."
 
-  sudo pacman -Sy $1 --noconfirm
+  sudo pacman -Sqy $packages --noconfirm --needed
 }
 
-# Install Dependencies
-if [ "$2" == "-y" ]; then
-  install_package ${DEPS[@]}
-else
-  for pkg in "${DEPS[@]}"; do
-    echo -n "--> Install $pkg? [Y/n] : "; read -n 1 confirm_install
-    echo ""
+echo ""
 
-    case "$confirm_install" in
-      n|N)
-        echo "--> Skipping $pkg..."
-        ;;
-      *)
-        install_package $pkg
-        ;;
-    esac
-  done
-fi
+# Install Dependencies
+# if [ "$2" == "-y" ]; then
+#   install_package ${DEPS[@]}
+# else
+#   for pkg in "${DEPS[@]}"; do
+#     echo -n "--> Install $pkg? [Y/n] : "; read -n 1 confirm_install
+#     echo ""
+# 
+#     case "$confirm_install" in
+#       n|N)
+#         echo "--> Skipping $pkg..."
+#         ;;
+#       *)
+#         install_package $pkg
+#         ;;
+#     esac
+#   done
+# fi
+
+# Do not ask for dependencies, just install them all directly
+install_package "${DEPS[@]}"
 
 # Install Packages
 for pkg in "${ARCH_PACKAGES[@]}"; do
@@ -77,10 +85,16 @@ done
 # echo "Installing yazi-fm"
 # cargo install yazi-fm
 
-echo "--> Installing caelestia..."
-mkdir -p "$HOME/source/setup"
-git clone https://github.com/caelestia-dots/shell "$HOME/source/setup/caelestia"
-"./$HOME/source/setup/caelestia/install.fish"
+caelestia_build_dir="$HOME/source/setup/caelestia"
+
+if [ -d "$caelestia_build_dir" ]; then
+  echo "--> Found existing caelestia installation, skipping..."
+else
+  echo "--> Installing caelestia..."
+  mkdir -p "$HOME/source/setup"
+  git clone https://github.com/caelestia-dots/shell "$caelestia_build_dir"
+  "$caelestia_build_dir/install.fish"
+fi
 
 echo ""
 
