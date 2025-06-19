@@ -10,7 +10,7 @@ add_newline = false
 # $character
 # """
 format = """
-$cmd_duration$directory $git_branch
+$username$hostname • $directory $git_branch
 $character
 """
 
@@ -52,7 +52,7 @@ deleted = " 🗑 "
 
 [hostname]
 ssh_only = false
-format =  "[•$hostname](bg:cyan bold fg:black)[](bold fg:cyan )"
+format =  "[/$hostname](bg:cyan bold fg:black)[](bold fg:cyan )"
 trim_at = ".companyname.com"
 disabled = false
 
