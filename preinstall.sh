@@ -58,6 +58,10 @@ echo ""
 # Do not ask for dependencies, just install them all directly
 install_package "${DEPS[@]}"
 
+echo ""
+echo "--> Successfully installed dependencies..."
+echo ""
+
 # Install Packages
 for pkg in "${ARCH_PACKAGES[@]}"; do
   if [ "$2" == "-y" ]; then
