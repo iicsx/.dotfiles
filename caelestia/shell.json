@@ -19,7 +19,7 @@
         }
     },
     "border": {
-        "colour": "#1a110e",
+        "colour": "#19120c",
         "rounding": 25,
         "thickness": 10
     },
@@ -73,6 +73,9 @@
             "sliderHeight": 150,
             "sliderWidth": 30
         }
+    },
+    "paths": {
+        "wallpaperDir": "/home/nex/Pictures/Wallpapers"
     },
     "session": {
         "dragThreshold": 30,

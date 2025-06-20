@@ -149,6 +149,19 @@ function caelestia() {
   fi
 }
 
+function qutebrowser() {
+  target_dir="$HOME/.config/qutebrowser"
+
+  if [ -d "$target_dir" ]; then
+    rm -rf "$target_dir"
+  fi
+
+  if [ ! -L "$target_dir" ]; then
+    ln -sf "$PWD/qutebrowser" "$target_dir"
+    echo "[󰄬] Created qutebrowser directory"
+  fi
+}
+
 shopt -s nocasematch
 echo -n "--> Run preinstall script? [Y/n] : "; read -n 1 confirm_run
 case "$confirm_run" in
@@ -172,6 +185,7 @@ METHODS=(
   starship
   fish
   foot
+  qutebrowser
 )
 
 for mod in "${METHODS[@]}"; do
@@ -182,6 +196,7 @@ for mod in "${METHODS[@]}"; do
 
     case "$confirm_install" in
       n|N)
+        echo ""
         echo "--> Skipping $mod..."
         ;;
       *)
