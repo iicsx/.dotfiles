@@ -7,12 +7,14 @@ if [ -z "$1" ]; then
     exit  1
 fi
 
-echo "╭──────────────────────────────────╮"
-echo "│    (_)__(_)_____________________ │"
-echo "│ __/ /__/ /_  ___/_  ___/\ \ /_/  │"
-echo "│ _/ /__/ / / /__ _(__  )__> + <   │"
-echo "│ /_/  /_/  \___/ /____/  /_/ \_\  │"
-echo "╰──────────────────────────────────╯"
+echo "╭────────────────────────────────────────╮"
+echo "│                                        │"
+echo "│       (_)__(_)_____________________    │"
+echo "│    __/ /__/ /_  ___/_  ___/\ \ /_/     │"
+echo "│    _/ /__/ / / /__ _(__  )__> + <      │"
+echo "│    /_/  /_/  \___/ /____/  /_/ \_\     │"
+echo "│                                        │"
+echo "╰────────────────────────────────────────╯"
 echo ""
 echo "> Welcome to the dotfiles of iicsx!"
 echo ""
@@ -20,79 +22,105 @@ echo ""
 function nvim() {
   target_dir="$HOME/.config/nvim"
 
-  echo "$target_dir"
-
   if [ -d "$target_dir" ]; then
     rm -rf "$target_dir"
   fi
 
-  ln -s "$PWD/nvim" "$target_dir"
-  echo "[󰄬] Created nvim directory"
+  if [ ! -L "$target_dir" ]; then
+    ln -sf "$PWD/nvim/extra" "$target_dir"
+    echo "[󰄬] Created nvim directory"
+  fi
 }
 
 function zsh() {
   target_file="$HOME/.zshrc"
 
-  echo "$target_file"
-
   if [ -e "$target_file" ]; then
     rm "$target_file"
   fi
 
-  ln -s "$PWD/.zshrc" "$target_file"
-  echo "[󰄬] Linked zsh config"
+  if [ ! -L "$target_file" ]; then
+    ln -sf "$PWD/.zshrc" "$target_file"
+    echo "[󰄬] Linked zsh config"
+  fi
 }
 
 function gitconfig() {
   target_file="$HOME/.gitconfig"
 
-  echo "$target_file"
-
   if [ -e "$target_file" ]; then
     rm "$target_file"
   fi
 
-  ln -s "$PWD/.gitconfig" "$target_file"
-  echo "[󰄬] Linked .gitconfig"
+  if [ ! -L "$target_file" ]; then
+    ln -sf "$PWD/.gitconfig" "$target_file"
+    echo "[󰄬] Linked .gitconfig"
+  fi
 }
 
 function hypr() {
   target_dir="$HOME/.config/hypr"
 
-  echo "$target_dir"
-
   if [ -d "$target_dir" ]; then
     rm -rf "$target_dir"
   fi
 
-  ln -s "$PWD/hypr" "$target_dir"
-  echo "[󰄬] Created Hyprland directory"
+  if [ ! -L "$target_dir" ]; then
+    ln -sf "$PWD/hypr" "$target_dir"
+    echo "[󰄬] Created Hyprland directory"
+  fi
 }
 
 function kitty() {
   target_dir="$HOME/.config/kitty"
 
-  echo "$target_dir"
+  if [ -d "$target_dir" ]; then
+    rm -rf "$target_dir"
+  fi
+
+  if [ ! -L "$target_dir" ]; then
+    ln -sf "$PWD/kitty" "$target_dir"
+    echo "[󰄬] Created kitty directory"
+  fi
+}
+
+function fish() {
+  target_dir="$HOME/.config/fish"
 
   if [ -d "$target_dir" ]; then
     rm -rf "$target_dir"
   fi
 
-  ln -s "$PWD/kitty" "$target_dir"
-  echo "[󰄬] Created kitty directory"
+  if [ ! -L "$target_dir" ]; then
+    ln -sf "$PWD/fish" "$target_dir"
+    echo "[󰄬] Created fish directory"
+  fi
+}
+
+function foot() {
+  target_dir="$HOME/.config/foot"
+
+  if [ -d "$target_dir" ]; then
+    rm -rf "$target_dir"
+  fi
+
+  if [ ! -L "$target_dir" ]; then
+    ln -sf "$PWD/foot" "$target_dir"
+    echo "[󰄬] Created foot directory"
+  fi
 }
 
 function starship() {
   target_file="$HOME/.config/starship.toml"
 
-  echo "$target_file"
-
   if [ -e "$target_file" ]; then
     rm "$target_file"
   fi
 
-  ln -s "$PWD/starship.toml" "$target_file"
-  echo "[󰄬] Linked starship config"
+  if [ ! -L "$target_file" ]; then
+    ln -sf "$PWD/starship.toml" "$target_file"
+    echo "[󰄬] Linked starship config"
+  fi
 }
 
 function fuzzel() {
@@ -111,20 +139,21 @@ function fuzzel() {
 function caelestia() {
   target_dir="$HOME/.config/caelestia"
 
-  echo "$target_dir"
-
   if [ -d "$target_dir" ]; then
     rm -rf "$target_dir"
   fi
 
-  ln -s "$PWD/caelestia" "$target_dir"
-  echo "[󰄬] Created caelestia directory"
+  if [ ! -L "$target_dir" ]; then
+    ln -sf "$PWD/caelestia" "$target_dir"
+    echo "[󰄬] Created caelestia directory"
+  fi
 }
 
 shopt -s nocasematch
 echo -n "--> Run preinstall script? [Y/n] : "; read -n 1 confirm_run
 case "$confirm_run" in
   n|N)
+    echo ""
     echo "--> Skipping preinstall..."
     ;;
   *)
@@ -141,6 +170,8 @@ METHODS=(
   caelestia
   kitty
   starship
+  fish
+  foot
 )
 
 for mod in "${METHODS[@]}"; do
@@ -148,7 +179,6 @@ for mod in "${METHODS[@]}"; do
     $mod
   else
     echo -n "--> Install $mod? [Y/n] : "; read -n 1 confirm_install
-    echo ""
 
     case "$confirm_install" in
       n|N)
