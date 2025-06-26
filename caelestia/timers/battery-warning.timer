@@ -1,0 +1,9 @@
+[Unit]
+Description=Battery Warning Timer
+
+[Timer]
+OnBootSec=30sec
+OnUnitActiveSec=30sec
+
+[Install]
+WantedBy=default.target

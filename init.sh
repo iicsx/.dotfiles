@@ -147,6 +147,29 @@ function caelestia() {
     ln -sf "$PWD/caelestia" "$target_dir"
     echo "[󰄬] Created caelestia directory"
   fi
+
+  echo "[ ] Linking caelestia services..."
+  # link all services
+  src="$PWD/caelestia/services"
+  dest="$HOME/.config/systemd/user"
+  
+  for file in "$src"/*; do
+    ln -sf "$file" "$dest"
+  done
+
+  echo "[ ] Linking caelestia timers..."
+  # link all timers
+  src="$HOME/.config/caelestia/timers"
+  dest="$HOME/.config/systemd/user"
+  
+  for file in "$src"/*; do
+    ln -sf "$file" "$dest"
+  done
+
+  echo "< > Reloading systemctl..."
+  systemctl --user daemon-reload
+  echo "< > Enabling systemd service..."
+  systemctl --user enable --now battery-warning.timer
 }
 
 function qutebrowser() {
@@ -193,10 +216,10 @@ for mod in "${METHODS[@]}"; do
     $mod
   else
     echo -n "--> Install $mod? [Y/n] : "; read -n 1 confirm_install
+    echo ""
 
     case "$confirm_install" in
       n|N)
-        echo ""
         echo "--> Skipping $mod..."
         ;;
       *)
