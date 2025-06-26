@@ -3,11 +3,12 @@
 script_directory="$HOME/.config/caelestia/scripts"
 process_name="wayland-idle-inhibitor.py"
 pid=$(pidof "$process_name")
+icon_dir="$HOME/.config/caelestia/icons"
 
 if [ -n "$pid" ]; then
   pkill -f "$process_name"
-  notify-send -u normal --icon=/home/nex/.config/caelestia/scripts/sleep-off.png "Idle-Inhibitor" "No longer inhibiting automatic idle"
+  notify-send -u normal --icon="$icon_dir/sleep-off.png" "Idle-Inhibitor" "No longer inhibiting automatic idle"
 else
   python3 "$script_directory/$process_name" &
-  notify-send -u normal --icon=/home/nex/.config/caelestia/scripts/sleep.png  "Idle-Inhibitor" "Now inhibiting automatic idle" 
+  notify-send -u normal --icon="$icon_dir/sleep.png"  "Idle-Inhibitor" "Now inhibiting automatic idle" 
 fi

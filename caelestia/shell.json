@@ -19,7 +19,7 @@
         }
     },
     "border": {
-        "colour": "#19120c",
+        "colour": "#141316",
         "rounding": 25,
         "thickness": 10
     },
@@ -81,6 +81,12 @@
         "dragThreshold": 30,
         "sizes": {
             "button": 80
+        }
+    },
+    "winfo": {
+        "sizes": {
+            "detailsWidth": 500,
+            "heightMult": 0.7
         }
     }
 }
