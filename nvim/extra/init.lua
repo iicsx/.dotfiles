@@ -12,8 +12,8 @@ if not WITH_CATS then
   require("lze")
 end
 
--- DEFAULT_COLOR = "sonokai"
-DEFAULT_COLOR = "gruvbox"
+DEFAULT_COLOR = "sonokai"
+-- DEFAULT_COLOR = "gruvbox"
 DEFAULT_BAR_COLOR = "none"
 
 vim.diagnostic.config({
