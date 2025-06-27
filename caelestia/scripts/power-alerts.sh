@@ -13,8 +13,6 @@ if [[ -f "$STATE_FILE" ]]; then
   last_notified=$(cat "$STATE_FILE")
 fi
 
-echo "$last_notified"
-
 if [[ "$battery_status" == "Discharging" ]]; then
   # alert critical levels
   critical=10
