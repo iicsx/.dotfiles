@@ -6,15 +6,24 @@ function fish_prompt -d "Write out the prompt"
         (set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
 end
 
+function fish_greeting
+    echo -ne '\x1b[38;5;16m'  # Set colour to primary
+    echo "   __     __     ______     ______     __  __    "
+    echo "  /\ \   /\ \   /\  ___\   /\  ___\   /\_\_\_\   "
+    echo "  \ \ \  \ \ \  \ \ \____  \ \___  \  \/_/\_\/_  "
+    echo "   \ \_\  \ \_\  \ \_____\  \/\_____\   /\_\/\_\ "
+    echo "    \/_/   \/_/   \/_____/   \/_____/   \/_/\/_/ "
+    set_color normal
+    fastfetch --key-padding-left 5
+end
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
     set fish_greeting
 
-end
+    starship init fish | source
 
-starship init fish | source
-if test -f ~/.cache/ags/user/generated/terminal/sequences.txt
-    cat ~/.cache/ags/user/generated/terminal/sequences.txt
+    cat ~/.local/state/caelestia/sequences.txt 2> /dev/null
 end
 
 export EDITOR=nvim
