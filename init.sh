@@ -148,6 +148,16 @@ function caelestia() {
     echo "[󰄬] Created caelestia directory"
   fi
 
+
+  echo "[ ] Modding executable scripts..."
+  # make all scripts executable
+  scripts="$PWD/caelestia/scripts"
+  for script in "$scripts"/*; do
+    if [ -f "$script" ]; then
+      chmod +x "$script"
+    fi
+  done
+
   echo "[ ] Linking caelestia services..."
   # link all services
   src="$PWD/caelestia/services"
