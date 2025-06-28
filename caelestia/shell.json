@@ -60,7 +60,7 @@
         "clearThreshold": 0.3,
         "defaultExpireTimeout": 3000,
         "expandThreshold": 20,
-        "expire": false,
+        "expire": true,
         "sizes": {
             "badge": 20,
             "image": 41,

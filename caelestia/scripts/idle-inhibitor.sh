@@ -7,8 +7,8 @@ icon_dir="$HOME/.config/caelestia/icons"
 
 if [ -n "$pid" ]; then
   pkill -f "$process_name"
-  notify-send -u normal --icon="$icon_dir/sleep-off.png" "Idle-Inhibitor" "No longer inhibiting automatic idle"
+  notify-send -u normal -t 3000 --icon="$icon_dir/sleep-off.png" "Idle-Inhibitor" "No longer inhibiting automatic idle"
 else
   python3 "$script_directory/$process_name" &
-  notify-send -u normal --icon="$icon_dir/sleep.png"  "Idle-Inhibitor" "Now inhibiting automatic idle" 
+  notify-send -u normal -t 3000 --icon="$icon_dir/sleep.png"  "Idle-Inhibitor" "Now inhibiting automatic idle" 
 fi
