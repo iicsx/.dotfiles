@@ -48,4 +48,3 @@ if __name__ == "__main__":
         print("Error: --reset and --value cannot be used together.")
     else:
         edit_hyprland_config(file_path, args.key, args.value or "", args.reset)
-        
