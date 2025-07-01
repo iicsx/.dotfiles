@@ -7,6 +7,6 @@ require("Comment").setup({
     },
     extra = {
         ---Add comment at the end of line
-        eol = '<C-a>',
+        eol = '<C-g>',
     },
 })
