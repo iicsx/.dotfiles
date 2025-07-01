@@ -5,6 +5,8 @@ icon_dir="$HOME/.config/caelestia/icons"
 BATTERY_PATH="/sys/class/power_supply/BAT0"
 STATE_FILE="/tmp/battery_warning_state"
 
+TIMEOUT_MS=999999999
+
 capacity=$(cat "$BATTERY_PATH/capacity")
 battery_status=$(cat "$BATTERY_PATH/status")
 
@@ -17,7 +19,7 @@ if [[ "$battery_status" == "Discharging" ]]; then
   # alert critical levels
   critical=10
   if (( capacity <= critical && last_notified > critical )); then
-    notify-send -u critical --icon="$icon_dir/battery-alert.png" "Battery Critical" "Battery is at ${capacity}%. Please plug in your charger."
+    notify-send -u critical -t $TIMEOUT_MS --icon="$icon_dir/battery-alert.png" "Battery Critical" "Battery is at ${capacity}%. Please plug in your charger."
     echo "$critical" > "$STATE_FILE"
     exit
   fi
@@ -25,7 +27,7 @@ if [[ "$battery_status" == "Discharging" ]]; then
   # alert warning levels
   warning=20
   if (( capacity <= warning && last_notified > warning )); then
-    notify-send -u normal --icon="$icon_dir/power-plug.png" "Battery Low" "Battery is at ${capacity}%. Please plug in your charger."
+    notify-send -u normal -t $TIMEOUT_MS --icon="$icon_dir/power-plug.png" "Battery Low" "Battery is at ${capacity}%. Please plug in your charger."
     echo "$warning" > "$STATE_FILE"
     exit
   fi
