@@ -12,5 +12,7 @@ settings:
     global: null
   colors.webpage.darkmode.enabled:
     global: true
+  content.javascript.clipboard:
+    https://pictogrammers.com: access-paste
   window.transparent:
     global: true
