@@ -8,20 +8,20 @@
         },
         "workspaces": {
             "activeIndicator": true,
-            "activeLabel": "󰮯 ",
-            "activeTrail": false,
-            "label": "  ",
+            "activeLabel": "󰹻 ",
+            "occupiedLabel": "󰀘 ",
+            "activeTrail": true,
+            "label": "󰐘 ",
             "occupiedBg": false,
-            "occupiedLabel": "󰮯 ",
-            "rounded": true,
+            "rounded":true,
             "showWindows": true,
-            "shown": 5
+            "shown": 10
         }
     },
     "border": {
         "colour": "#131319",
-        "rounding": 25,
-        "thickness": 10
+        "rounding": 20,
+        "thickness": 5
     },
     "dashboard": {
         "mediaUpdateInterval": 500,
@@ -41,15 +41,15 @@
             "weatherWidth": 250
         },
         "visualiserBars": 45,
-        "weatherLocation": ""
+        "weatherLocation": "Frankfurt"
     },
     "launcher": {
-        "actionPrefix": ">",
-        "enableDangerousActions": false,
+        "actionPrefix": ":",
+        "enableDangerousActions": true,
         "maxShown": 8,
         "maxWallpapers": 9,
         "sizes": {
-            "itemHeight": 57,
+            "itemHeight": 60,
             "itemWidth": 600,
             "wallpaperHeight": 200,
             "wallpaperWidth": 280
@@ -64,7 +64,7 @@
         "sizes": {
             "badge": 20,
             "image": 41,
-            "width": 400
+            "width": 500
         }
     },
     "osd": {
@@ -80,7 +80,7 @@
     "session": {
         "dragThreshold": 30,
         "sizes": {
-            "button": 80
+            "button": 90
         }
     },
     "winfo": {
