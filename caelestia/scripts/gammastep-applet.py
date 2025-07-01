@@ -10,6 +10,8 @@ from gi.repository import Gtk, AppIndicator3
 
 CONFIG = os.path.expanduser("~/.config/gammastep/config.ini")
 
+TIMER_DELAY=0.01
+
 class GammaStepApplet:
     def __init__(self):
         self.indicator = AppIndicator3.Indicator.new(
@@ -67,7 +69,7 @@ class GammaStepApplet:
         subprocess.call(["pkill", "-x", "gammastep"])
         
         while subprocess.call(["pgrep", "-x", "gammastep"], stdout=subprocess.DEVNULL) == 0:
-            time.sleep(0.1)
+            time.sleep(TIMER_DELAY)
 
         subprocess.Popen(["gammastep", "-c", CONFIG])
         self.redraw_ui(self.is_running())
@@ -78,7 +80,7 @@ class GammaStepApplet:
             subprocess.call(["pkill", "-x", "gammastep"])
 
             while subprocess.call(["pgrep", "-x", "gammastep"], stdout=subprocess.DEVNULL) == 0:
-                time.sleep(0.01)
+                time.sleep(TIMER_DELAY)
 
         subprocess.Popen(["gammastep", "-P", "-O", str(temp)])
 
@@ -94,7 +96,7 @@ class GammaStepApplet:
 
     def redraw_ui(self, wait=True):
         while wait and subprocess.call(["pgrep", "-x", "gammastep"], stdout=subprocess.DEVNULL) == 0:
-            time.sleep(0.1)
+            time.sleep(TIMER_DELAY)
 
         self.update_icon()
         self.build_menu()
