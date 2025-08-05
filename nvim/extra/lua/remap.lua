@@ -17,6 +17,9 @@ vim.keymap.set("n", "<leader>S", ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>
 vim.keymap.set("n", "<leader>ff", "<Cmd>lua vim.lsp.buf.format()<CR>")
 vim.keymap.set("n", "<leader><tab>", ":quit<CR>")
 
+vim.keymap.set("n", "<C-S-J>", "o<Esc>k")
+vim.keymap.set("n", "<C-S-K>", "O<Esc>j")
+
 vim.keymap.set("n", "<leader>n", ":bnext<CR>")
 vim.keymap.set("n", "<leader>b", ":bprevious<CR>")
 vim.keymap.set("n", "<leader>t", ":enew<CR>")
@@ -50,7 +53,7 @@ vim.keymap.set("n", "<leader>cx", ":call VrcQuery()<CR>", { noremap = true })
 BUFNUM_GROUP = vim.api.nvim_create_augroup("BufferNumber", { clear = true })
 
 
--- INTERNAL FUNCTIONS -- 
+-- INTERNAL FUNCTIONS --
 local function get_active_buffers()
   local active_buffers = {}
 
