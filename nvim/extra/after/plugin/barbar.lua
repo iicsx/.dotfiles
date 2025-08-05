@@ -44,7 +44,7 @@ require('barbar').setup({
 })
 
 -- auto command when adding a  new buffer to run BufferOrderByBufferNumber
-vim.api.nvim_create_autocmd('BufAdd', {
+vim.api.nvim_create_autocmd('BufEnter', {
   group = vim.api.nvim_create_augroup('BufferLine', { clear = true }),
   callback = function()
     vim.cmd('BufferOrderByBufferNumber')
