@@ -6,6 +6,11 @@ function fish_prompt -d "Write out the prompt"
         (set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
 end
 
+function mkcd
+    mkdir -p $argv[1]
+    cd $argv[1]
+end
+
 function fish_greeting
     echo -ne '\x1b[38;5;16m'  # Set colour to primary
     echo "   __     __     ______     ______     __  __    "
@@ -48,6 +53,7 @@ alias glo='git log --oneline'
 alias qo='qutebrowser -- :open'
 
 alias sudoe='sudo -E -s'
+alias nm='TERM=screen-256color neomutt'
 
 zoxide init --cmd cd fish | source
 
