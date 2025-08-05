@@ -12,8 +12,15 @@ if not WITH_CATS then
   require("lze")
 end
 
-DEFAULT_COLOR = "sonokai"
--- DEFAULT_COLOR = "gruvbox"
+local themes = {
+  'poimandres',
+  'NeoSolarized',
+  'oh-lucy',
+  'sonokai',
+  "tokyonight",
+}
+
+DEFAULT_COLOR = themes[2]
 DEFAULT_BAR_COLOR = "none"
 
 vim.diagnostic.config({
