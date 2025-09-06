@@ -113,7 +113,9 @@ M.plugins = {
   -- 'github/copilot.vim',
 
   'numToStr/Comment.nvim',
-  { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...}
+  { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
+
+  'nvim-mini/mini.ai'
 }
 
 return M

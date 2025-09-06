@@ -20,7 +20,7 @@ local themes = {
   "tokyonight",
 }
 
-DEFAULT_COLOR = themes[2]
+DEFAULT_COLOR = themes[3]
 DEFAULT_BAR_COLOR = "none"
 
 vim.diagnostic.config({
