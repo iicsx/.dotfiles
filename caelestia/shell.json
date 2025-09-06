@@ -1,4 +1,9 @@
 {
+  "appearance": {
+    "transparency": {
+      "enabled": false
+    }
+  },
   "bar": {
     "sizes": {
       "batteryWidth": 250,
@@ -81,7 +86,8 @@
     }
   },
   "paths": {
-    "wallpaperDir": "/home/nex/Pictures/Wallpapers"
+    "wallpaperDir": "~/Pictures/Wallpapers",
+    "sessionGif": "~/Pictures/face/pedro.gif"
   },
   "session": {
     "dragThreshold": 30,
@@ -94,5 +100,9 @@
       "detailsWidth": 500,
       "heightMult": 0.7
     }
+  },
+  "services": {
+    "useFahrenheit": false,
+    "useTwelveHourClock": false
   }
 }
