@@ -172,6 +172,13 @@ local function apply_buffer_colors()
     { fg = buffer_colors.active.error, bg = buffer_colors.active.bg, bold = true })
 end
 
+local function set_diagnostics_colors()
+  vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = "#ff5555", bg = "NONE" })
+  vim.api.nvim_set_hl(0, "DiagnosticSignWarn", { fg = "#f1fa8c", bg = "NONE" })
+  vim.api.nvim_set_hl(0, "DiagnosticSignInfo", { fg = "#8be9fd", bg = "NONE" })
+  vim.api.nvim_set_hl(0, "DiagnosticSignHint", { fg = "#50fa7b", bg = "NONE" })
+end
+
 -- exposing this globally for ad-hoc use
 function SC(color)
   color = color or DEFAULT_COLOR
@@ -199,6 +206,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.api.nvim_set_hl(0, "FloatTitle", { fg = "white", bg = "none" })
 
     apply_buffer_colors()
+    set_diagnostics_colors()
   end
 })
 

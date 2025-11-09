@@ -4,7 +4,65 @@
       "enabled": false
     }
   },
+  "general": {
+    "battery": {
+      "warnLevels": [
+        {
+          "level": 20,
+          "title": "Low battery",
+          "message": "Please plug in your charger.",
+          "icon": "battery_android_frame_2"
+        },
+        {
+          "level": 10,
+          "title": "Critical battery level",
+          "message": "Battery low, please plug in your charger.",
+          "icon": "battery_android_alert",
+          "critical": true
+        }
+      ],
+      "criticalLevel": 2
+    }
+  },
   "bar": {
+    "entries": [
+      {
+        "id": "logo",
+        "enabled": true
+      },
+      {
+        "id": "workspaces",
+        "enabled": true
+      },
+      {
+        "id": "spacer",
+        "enabled": true
+      },
+      {
+        "id": "activeWindow",
+        "enabled": false
+      },
+      {
+        "id": "spacer",
+        "enabled": true
+      },
+      {
+        "id": "tray",
+        "enabled": true
+      },
+      {
+        "id": "clock",
+        "enabled": true
+      },
+      {
+        "id": "statusIcons",
+        "enabled": true
+      },
+      {
+        "id": "power",
+        "enabled": true
+      }
+    ],
     "sizes": {
       "batteryWidth": 250,
       "innerHeight": 30,
@@ -13,7 +71,8 @@
     },
     "status": {
       "showKbLayout": true,
-      "showAudio": true
+      "showAudio": true,
+      "showLockStatus": false
     },
     "workspaces": {
       "activeIndicator": true,

@@ -31,7 +31,8 @@ local bubbles_theme = {
   normal = {
     a = { fg = colors.black, bg = colors.white },
     b = { fg = colors.white, bg = colors.grey },
-    c = { fg = colors.white }, -- update this after load
+    c = { fg = colors.white },
+    x = { fg = colors.white }, -- update this after load
     z = { fg = colors.black, bg = colors.white },
   },
 
@@ -56,7 +57,10 @@ require('lualine').setup {
   sections = {
     lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
     lualine_b = {
-      --{
+      { "encoding", },
+      { "fileformat", },
+    },
+    lualine_c = {
       'branch',
       'diff',
       {
@@ -64,6 +68,7 @@ require('lualine').setup {
         source = { 'nvim' },
         sections = { 'error' },
         diagnostics_color = { error = { bg = colors.red, fg = colors.white } },
+        separator = { right = '' },
       },
       {
         'diagnostics',
@@ -90,15 +95,12 @@ require('lualine').setup {
         end,
       },
     },
-    lualine_c = {
+    lualine_x = {
+      'filetype', 'progress',
       '%=',
-      'filetype', 'progress'
     },
-    lualine_x = {},
     lualine_y = {
-      { 'filename',   file_status = false, path = 1 },
-      { "encoding", },
-      { "fileformat", }
+      { 'filename', file_status = false, path = 1 },
     },
     lualine_z = {
       { 'location', separator = { right = '' }, left_padding = 2 },
