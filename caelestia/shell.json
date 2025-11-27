@@ -113,6 +113,19 @@
     "visualiserBars": 45,
     "weatherLocation": "Frankfurt"
   },
+  "background": {
+    "desktopClock": {
+      "enabled": true
+    },
+    "enabled": true,
+    "visualiser": {
+      "blur": false,
+      "enabled": false,
+      "autoHide": true,
+      "rounding": 1,
+      "spacing": 1
+    }
+  },
   "launcher": {
     "actionPrefix": ":",
     "enableDangerousActions": true,
