@@ -32,6 +32,7 @@ if status is-interactive
 end
 
 export EDITOR=nvim
+export PATH="/home/nex/.ghcup/bin:$PATH"
 
 alias v='$EDITOR'
 alias vh='$EDITOR .'
