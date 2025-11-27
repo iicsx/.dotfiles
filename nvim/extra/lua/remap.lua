@@ -40,6 +40,11 @@ end, { noremap = true })
 
 vim.keymap.set("n", "<leader>o", ":BufferOrderByBufferNumber<CR>")
 
+vim.keymap.set("n", "<leader><S-J>", "<C-W>j")
+vim.keymap.set("n", "<leader><S-K>", "<C-W>k")
+vim.keymap.set("n", "<leader><S-H>", "<C-W>h")
+vim.keymap.set("n", "<leader><S-L>", "<C-W>l")
+
 -- No longer needed due to mini.animate (causes issues with scrolling)
 -- vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true })
 -- vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true })
@@ -51,6 +56,17 @@ end, { silent = true })
 vim.keymap.set("n", "<leader>cx", ":call VrcQuery()<CR>", { noremap = true })
 
 BUFNUM_GROUP = vim.api.nvim_create_augroup("BufferNumber", { clear = true })
+
+vim.keymap.set("n", "<leader>qg", function()
+  local git_status = vim.fn.systemlist("git status --porcelain")
+  local items = {}
+  for _, line in ipairs(git_status) do
+    table.insert(items, { filename = line:sub(4), text = line })
+  end
+
+  vim.fn.setqflist(items, "r")
+  vim.cmd("copen")
+end)
 
 
 -- INTERNAL FUNCTIONS --

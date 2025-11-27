@@ -8,6 +8,5 @@ return {
     "settings.gradle.kts",
     "gradlew.bat",
     "gradlew",
-    -- add gradle files etc
   }
 }

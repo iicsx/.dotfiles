@@ -22,7 +22,13 @@ M.plugins = {
   {
     "nvim-telescope/telescope.nvim",
     version = "0.1.4",
-    dependencies = { { "nvim-lua/plenary.nvim" } },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = 'make'
+      },
+    },
   },
 
   -- Undotree
@@ -83,8 +89,8 @@ M.plugins = {
   "nvim-mini/mini.ai",
 
   -- AI Integration
-  -- "robitx/gp.nvim",
-  -- 'github/copilot.vim',
+  "robitx/gp.nvim",
+  'github/copilot.vim',
 }
 
 return M

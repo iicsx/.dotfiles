@@ -1,6 +1,7 @@
 local lsp_servers = {
   "bashls",
   "clangd",
+  "haskell-lsp",
   "jdtls",
   "lua_ls",
   "marksman",

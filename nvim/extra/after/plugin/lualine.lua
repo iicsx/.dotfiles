@@ -68,13 +68,14 @@ require('lualine').setup {
         source = { 'nvim' },
         sections = { 'error' },
         diagnostics_color = { error = { bg = colors.red, fg = colors.white } },
-        separator = { right = '' },
+        separator = { left = '', right = '' },
       },
       {
         'diagnostics',
         source = { 'nvim' },
         sections = { 'warn' },
         diagnostics_color = { warn = { bg = colors.orange, fg = colors.white } },
+        separator = { left = '', right = '' },
       },
       {
         '%w',
@@ -117,3 +118,15 @@ require('lualine').setup {
   tabline = {},
   extensions = {},
 }
+
+vim.api.nvim_create_autocmd("CmdlineEnter", {
+  callback = function()
+    require('lualine').hide()
+  end
+})
+
+vim.api.nvim_create_autocmd("CmdlineLeave", {
+  callback = function()
+    require('lualine').hide({ unhide = true })
+  end
+})
